@@ -19,7 +19,7 @@ export default function TableHeader ({ fields, onSort }) {
       <tr>  
         {fields.map(field => (  
           <th key={field} onClick={() => handleSort(field)}>  
-            {field} {sortField === field && (sortDirection === 'asc' ? '↑' : '↓ ')}  
+            {field} {sortField === field && (sortDirection === 'asc' ? '↓' : '↑')}  
           </th>  
         ))}  
       </tr>  
