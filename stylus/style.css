@@ -1,0 +1,44 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h1{
+	color: rgb(15, 39, 60);
+	text-align: center;
+	font-weight: bold;
+	font-size: 44px;
+}
+body{
+background-color: rgb(193, 204, 211);
+display: flex;
+justify-content: center;
+}
+
+
+.table-block{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+table{
+	border: 1px solid #4b4d08;
+	width: 100%;
+	margin: 10px;
+	
+}
+table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #684c4c;
+	border: 1px solid #666060;
+}
+
+tbody td{
+	border: 1px solid black;
+	background-color: #0ba0b3;
+	padding: 14px;
+}
+
