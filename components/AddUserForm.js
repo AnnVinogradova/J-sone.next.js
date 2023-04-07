@@ -41,7 +41,7 @@ export default function AddUserForm ({ onAddUser }) {
       <label htmlFor="company">Company:</label>  
       <input type="text" id="company" name="company" value={company.name} onChange={(e) => setCompany({ ...company, name: e.target.value })} />
       
-      <button type="submit">Add User</button> 
+      <button type="submit" className='add'>Add User</button> 
     </form> 
   ); 
 };

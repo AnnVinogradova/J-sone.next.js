@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import TableHeader from '../components/TableHeader'; 
 import TableRow from '../components/TableRow'; 
 import AddUserForm from '../components/AddUserForm';
+import EditUserForm from '../components/EditUserForm';
 
 export default function UserTable () { 
   const [users, setUsers] = useState([]); 
   const [sortField, setSortField] = useState(''); 
   const [sortDirection, setSortDirection] = useState('asc'); 
-  const [searchString, setSearchString] = useState(''); 
+  const [searchString, setSearchString] = useState('');
+  const [selectedUser, setSelectedUser] = useState(null); 
  
   useEffect(() => { 
     const fetchUsers = async () => { 
@@ -22,6 +24,8 @@ export default function UserTable () {
     const updatedUsers = [...users, newUser];
     setUsers(updatedUsers);
   };
+
+
   const handleSort = (field, direction) => { 
     setSortField(field); 
     setSortDirection(direction); 
@@ -71,6 +75,15 @@ const handleDelete = (id) => {
   setUsers(updatedUsers);
   };
 
+  const handleEdit = (user) => {
+    setSelectedUser(user);
+  };
+
+  const handleSaveUser = (updatedUser) => {
+    const updatedUsers = users.map((user) => (user.id === updatedUser.id ? updatedUser : user));
+    setUsers(updatedUsers);
+    setSelectedUser(null);
+  };
 
   return <> 
   <div>  
@@ -79,11 +92,12 @@ const handleDelete = (id) => {
   <div>
       <AddUserForm onAddUser={handleAddUser} /> 
   </div>
+  {selectedUser && <EditUserForm user={selectedUser} onSave={handleSaveUser}/>}
     <table> 
       <TableHeader fields={['name', 'email', 'address.city', 'phone', 'website', 'company.name', 'Action']} onSort={handleSort} /> 
       <tbody> 
         {sortedUsers.map(user => ( 
-          <TableRow key={user.id+1} user={user} handleDelete={handleDelete}/> 
+          <TableRow key={user.id+1} user={user} handleDelete={handleDelete} handleEdit={handleEdit}/> 
         ))} 
       </tbody> 
     </table> 

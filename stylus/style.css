@@ -42,3 +42,19 @@ tbody td{
 	padding: 14px;
 }
 
+.add{
+	background-color: #da7d27;
+	margin: 4px;
+	width: 80px;
+}
+
+.del{
+	background-color: #d42222;
+	margin: 4px;
+	width: 80px;
+}
+.edit{
+	background-color: #780f82;
+	margin: 4px;
+	width: 80px;
+}

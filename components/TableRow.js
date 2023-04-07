@@ -1,5 +1,5 @@
 
-export default function TableRow({ user, handleDelete, handleEditUser}) {
+export default function TableRow({ user, handleDelete, handleEdit}) {
 
   return (
     <tr>
@@ -10,8 +10,8 @@ export default function TableRow({ user, handleDelete, handleEditUser}) {
       <td>{user.website}</td>
       <td>{user.company?.name}</td>
       <td>
-        <button onClick={() => handleDelete(user.id)}>Delete</button>
-		<button onClick={() => handleEditUser(user.id)}>Edit</button>
+        <button onClick={() => handleDelete(user.id)} className="del">Delete</button>
+		<button className="edit" onClick={() => handleEdit(user)}>Edit</button>
       </td>
     </tr>
   );
